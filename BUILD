@@ -137,6 +137,12 @@ cc_library(
     ],
 )
 
+cc_library(
+    name = "_iomp5-so",
+    srcs = [
+        "lib/libiomp5.so"
+    ],
+)
 
 cc_library(
     name = "common",
@@ -145,6 +151,7 @@ cc_library(
         ":_ilp64",
         ":_lp64",
         ":_sequential",
+        ":_iomp5-so"
     ],
 )
 
