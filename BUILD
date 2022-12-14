@@ -1,5 +1,5 @@
 load(
-    "@//.resources/rules:compression.bzl",
+    "@//:compression.bzl",
     "decompress_xz",
 )
 
