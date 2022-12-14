@@ -127,6 +127,16 @@ cc_library(
     ],
 )
 
+cc_library(
+    name = "_sequential",
+    srcs = [
+        "lib/libmkl_sequential.a",
+    ],
+    deps = [
+      ":_core",
+    ],
+)
+
 
 cc_library(
     name = "common",
@@ -134,9 +144,9 @@ cc_library(
         ":_headers",
         ":_ilp64",
         ":_lp64",
+        ":_sequential",
     ],
 )
-
 
 
 [
