@@ -1,5 +1,5 @@
 load(
-    "@mkl//:compression.bzl",
+    "@com_github_mkl//:compression.bzl",
     "decompress_xz",
 )
 
