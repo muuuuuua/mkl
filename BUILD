@@ -97,6 +97,7 @@ cc_library(
     name = "_thread",
     srcs = [
         "lib/libmkl_intel_thread.a",
+        "lib/libmkl_gnu_thread.a",
     ],
     deps = [
         ":_core",
