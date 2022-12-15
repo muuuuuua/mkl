@@ -156,6 +156,42 @@ cc_library(
     ],
 )
 
+cc_library(
+    name = "_core-so",
+    srcs = [
+        "lib/libmkl_core.so.2",
+    ],
+)
+
+cc_library(
+    name = "_sequential-so",
+    srcs = [
+        "lib/libmkl_sequential.so.2",
+    ],
+    deps = [
+      ":_core",
+    ],
+)
+
+cc_library(
+    name = "_avx-so",
+    srcs = [
+        "lib/libmkl_avx.so.2",
+        "lib/libmkl_avx2.so.2",
+        "lib/libmkl_avx512.so.2",
+    ],
+)
+
+cc_library(
+    name = "common-so",
+    deps = [
+        ":_headers",
+        ":_core-so",
+        ":_avx-so",
+        ":_sequential-so",
+        ":_iomp5-so"
+    ],
+)
 
 [
     decompress_xz(
