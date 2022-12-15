@@ -99,9 +99,6 @@ cc_library(
         "lib/libmkl_intel_thread.a",
         "lib/libmkl_gnu_thread.a",
     ],
-    deps = [
-        ":_core",
-    ],
 )
 
 
@@ -125,6 +122,13 @@ cc_library(
     deps = [
         ":_core",
         ":_thread",
+    ],
+)
+
+cc_library(
+    name = "_lp64-so",
+    srcs = [
+        "lib/libmkl_intel_lp64.so.2",
     ],
 )
 
@@ -183,13 +187,22 @@ cc_library(
 )
 
 cc_library(
+    name = "_thread-so",
+    srcs = [
+        "lib/libmkl_intel_thread.so.2",
+        "lib/libmkl_gnu_thread.so.2",
+    ],
+)
+cc_library(
     name = "common-so",
     deps = [
         ":_headers",
         ":_core-so",
         ":_avx-so",
+        ":_thread-so",
+        ":_lp64-so",
         ":_sequential-so",
-        ":_iomp5-so"
+        ":_iomp5-so",
     ],
 )
 
